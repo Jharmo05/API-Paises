@@ -12,17 +12,6 @@ const monedas = document.querySelector('.currencies');
 const idiomas = document.querySelector('.languages');
 const paisesFronterizos = document.querySelector('.border-countries');
 
-function aplicarTemaGuardado() {
-  const temaGuardado = localStorage.getItem('tema');
-  if (temaGuardado === 'dark') {
-    document.body.classList.add('dark');
-  } else {
-    document.body.classList.remove('dark');
-  }
-}
-
-aplicarTemaGuardado();
-
 fetch(`https://restcountries.com/v3.1/name/${nombrePais}?fullText=true`)
   .then((respuesta) => respuesta.json())
   .then(([pais]) => {
@@ -74,5 +63,6 @@ fetch(`https://restcountries.com/v3.1/name/${nombrePais}?fullText=true`)
       });
     } else {
       paisesFronterizos.innerText = 'Países Fronterizos: Ninguno';
+    }
   })
   .catch((error) => console.error('Error al obtener los datos del país:', error));
