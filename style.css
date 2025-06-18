@@ -13,7 +13,7 @@ body {
 }
 
 body.dark {
-  --color-fondo: hsl(207, 26%, 17%);
+  --color-fondo: hsl(207, 26%, 17%); 
   --color-texto: white;
   --color-elementos: hsl(209, 23%, 22%);
 }
@@ -56,18 +56,19 @@ a {
   display: flex;
   gap: 64px;
   flex-wrap: wrap;
-  justify-content: center;
   margin-inline: auto;
+  justify-content: space-between;
 }
 
 .country-card {
-  width: 260px;
-  background-color: var(--color-elementos);
-  border-radius: 4px;
+  display: inline-block;
+  width: 250px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.1);
+  padding-bottom: 24px;
+  box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
-  color: var(--color-texto);
+  background-color: var(--color-elementos);
 }
 
 .country-card:hover {
@@ -93,7 +94,6 @@ a {
   width: 100%;
   box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.3);
   height: 150px;
-  object-fit: cover;
 }
 
 .search-filter-container {
@@ -102,7 +102,7 @@ a {
   margin-top: 16px;
   margin-bottom: 48px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 24px;
   flex-wrap: wrap;
 }
@@ -134,39 +134,22 @@ a {
   color: var(--color-texto);
 }
 
-.filter-by-region {
-  padding: 16px 24px;
-  border: none;
-  outline: none;
-  background-color: var(--color-elementos);
-  color: var(--color-texto);
-  border-radius: 4px;
-  box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
-}
-
-.main-footer {
-  background-color: var(--color-elementos);
-  box-shadow: 0 -2px 4px 0px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
-  margin-top: 50px;
-  color: var(--color-texto);
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin-inline: auto;
-  font-size: 14px;
-}
-
-@media (max-width: 768px) {
-  .search-filter-container {
-    flex-direction: column;
-    align-items: flex-start;
+@media(max-width: 768px) {
+  .countries-container {
+      justify-content: center;
   }
 
-  .search-container {
-    max-width: 100%;
+  .title {
+      font-size: 16px;
+  }
+
+  .header-content p {
+      font-size: 12px;
+  }
+
+  .search-filter-container {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
   }
 }
