@@ -8,26 +8,42 @@ let todosLosPaises;
 fetch("https://restcountries.com/v3.1/all")
   .then((respuesta) => respuesta.json())
   .then((datos) => {
-    mostrarPaises(datos);
     todosLosPaises = datos;
+    mostrarPaises(todosLosPaises);
+
+    inputBusqueda.addEventListener("input", (evento) => {
+      const terminoBusqueda = evento.target.value.toLowerCase();
+      const paisesFiltrados = todosLosPaises.filter(pais =>
+        pais.name.common.toLowerCase().includes(terminoBusqueda)
+      );
+      mostrarPaises(paisesFiltrados);
+    });
+  })
+  .catch(error => {
+    console.error("Error al cargar los países:", error);
+    contenedorPaises.innerHTML = "<p>Hubo un error al cargar los países. Por favor, inténtalo de nuevo más tarde.</p>";
   });
 
 filtroPorRegion.addEventListener("change", (evento) => {
-  fetch(`https://restcountries.com/v3.1/region/${filtroPorRegion.value}`)
-    .then((respuesta) => respuesta.json())
-    .then(mostrarPaises);
-});
-
-inputBusqueda.addEventListener("input", (evento) => {
-  const terminoBusqueda = evento.target.value.toLowerCase();
-  const paisesFiltrados = todosLosPaises.filter(pais =>
-    pais.name.common.toLowerCase().includes(terminoBusqueda)
-  );
-  mostrarPaises(paisesFiltrados);
+  if (filtroPorRegion.value === "Filtrar por Región") {
+    mostrarPaises(todosLosPaises);
+  } else {
+    fetch(`https://restcountries.com/v3.1/region/${filtroPorRegion.value}`)
+      .then((respuesta) => respuesta.json())
+      .then(mostrarPaises)
+      .catch(error => {
+        console.error("Error al filtrar por región:", error);
+        contenedorPaises.innerHTML = "<p>Hubo un error al filtrar por región. Por favor, inténtalo de nuevo más tarde.</p>";
+      });
+  }
 });
 
 function mostrarPaises(datosPaises) {
   contenedorPaises.innerHTML = "";
+  if (datosPaises.length === 0) {
+    contenedorPaises.innerHTML = "<p>No se encontraron países con ese nombre.</p>";
+    return;
+  }
   datosPaises.forEach((pais) => {
     const tarjetaPais = document.createElement("a");
     tarjetaPais.classList.add("country-card");
