@@ -4,16 +4,18 @@ const inputBusqueda = document.querySelector(".search-container input");
 const cambiadorTema = document.querySelector(".theme-changer");
 
 let todosLosPaises;
+let paisesMostradosActualmente;
 
 fetch("https://restcountries.com/v3.1/all")
   .then((respuesta) => respuesta.json())
   .then((datos) => {
     todosLosPaises = datos;
-    mostrarPaises(todosLosPaises);
+    paisesMostradosActualmente = datos;
+    mostrarPaises(paisesMostradosActualmente);
 
     inputBusqueda.addEventListener("input", (evento) => {
       const terminoBusqueda = evento.target.value.toLowerCase();
-      const paisesFiltrados = todosLosPaises.filter(pais =>
+      const paisesFiltrados = paisesMostradosActualmente.filter(pais =>
         pais.name.common.toLowerCase().includes(terminoBusqueda)
       );
       mostrarPaises(paisesFiltrados);
@@ -25,12 +27,19 @@ fetch("https://restcountries.com/v3.1/all")
   });
 
 filtroPorRegion.addEventListener("change", (evento) => {
-  if (filtroPorRegion.value === "Filtrar por Región") {
-    mostrarPaises(todosLosPaises);
+  const regionSeleccionada = filtroPorRegion.value;
+  inputBusqueda.value = '';
+
+  if (regionSeleccionada === "Filtrar por Región") {
+    paisesMostradosActualmente = todosLosPaises;
+    mostrarPaises(paisesMostradosActualmente);
   } else {
-    fetch(`https://restcountries.com/v3.1/region/${filtroPorRegion.value}`)
+    fetch(`https://restcountries.com/v3.1/region/${regionSeleccionada}`)
       .then((respuesta) => respuesta.json())
-      .then(mostrarPaises)
+      .then((datosRegion) => {
+        paisesMostradosActualmente = datosRegion;
+        mostrarPaises(paisesMostradosActualmente);
+      })
       .catch(error => {
         console.error("Error al filtrar por región:", error);
         contenedorPaises.innerHTML = "<p>Hubo un error al filtrar por región. Por favor, inténtalo de nuevo más tarde.</p>";
@@ -41,7 +50,7 @@ filtroPorRegion.addEventListener("change", (evento) => {
 function mostrarPaises(datosPaises) {
   contenedorPaises.innerHTML = "";
   if (datosPaises.length === 0) {
-    contenedorPaises.innerHTML = "<p>No se encontraron países con ese nombre.</p>";
+    contenedorPaises.innerHTML = "<p>No se encontraron países que coincidan con su búsqueda o filtro.</p>";
     return;
   }
   datosPaises.forEach((pais) => {
