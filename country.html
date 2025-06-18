@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>País</title>
+    <link
+    href="https://fonts.googleapis.com/css?family=Nunito:300,500,600,700,800"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="./style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==S"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="country.css">
+</head>
+<body>
+    <header class="header-container">
+        <div class="header-content">
+          <h2 class="title">Paises del mundo</h2>
+          <p><i class="fa-regular fa-moon"></i>&nbsp;&nbsp;Modo Oscuro</p>
+        </div>
+      </header>
+      <main>
+        <div class="country-details-container">
+          <span class="back-button" onclick="history.back()">
+            <i class="fa-solid fa-arrow-left"></i>&nbsp; Volver
+          </span>
+          <div class="country-details">
+            <img src="" alt="" />
+            <div class="details-text-container">
+              <h1></h1>
+              <div class="details-text">
+                <p><b>Nombre Nativo: </b><span class="native-name"></span></p>
+                <p><b>Población: </b><span class="population"></span></p>
+                <p><b>Región: </b><span class="region"></span></p>
+                <p><b>Sub Región: </b><span class="sub-region"></span></p>
+                <p><b>Capital: </b><span class="capital"></span></p>
+                <p>
+                  <b>Dominio de Nivel Superior: </b><span class="top-level-domain"></span>
+                </p>
+                <p><b>Monedas: </b><span class="currencies"></span></p>
+                <p><b>Idiomas: </b><span class="languages"></span></p>
+              </div>
+              <div class="border-countries"><b>Países Fronterizos: </b>&nbsp;</div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <script src="./country.js"></script>
+<footer class="main-footer">
+  <div class="footer-content">
+    <p>&copy; 2024 Creado por Sebastian Ardila</p>
+  </div>
+</footer>
+</body>
+</html>
