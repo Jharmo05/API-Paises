@@ -18,6 +18,14 @@ filtroPorRegion.addEventListener("change", (evento) => {
     .then(mostrarPaises);
 });
 
+inputBusqueda.addEventListener("input", (evento) => {
+  const terminoBusqueda = evento.target.value.toLowerCase();
+  const paisesFiltrados = todosLosPaises.filter(pais =>
+    pais.name.common.toLowerCase().includes(terminoBusqueda)
+  );
+  mostrarPaises(paisesFiltrados);
+});
+
 function mostrarPaises(datosPaises) {
   contenedorPaises.innerHTML = "";
   datosPaises.forEach((pais) => {
@@ -36,13 +44,6 @@ function mostrarPaises(datosPaises) {
     contenedorPaises.append(tarjetaPais);
   });
 }
-
-inputBusqueda.addEventListener("input", (evento) => {
-  const paisesFiltrados = todosLosPaises.filter((pais) =>
-    pais.name.common.toLowerCase().includes(evento.target.value.toLowerCase())
-  );
-  mostrarPaises(paisesFiltrados);
-});
 
 cambiadorTema.addEventListener("click", () => {
   document.body.classList.toggle("dark");
