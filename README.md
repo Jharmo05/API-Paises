@@ -15,6 +15,21 @@ Este proyecto es ideal para quienes están empezando a aprender desarrollo web y
 
 ## 🎨 Diseño Visual (Maquetación)
 
+### Página Principal
+
+![Captura de la página principal de países](./images/first.png)
+_Una vista general de la lista de países, incluyendo la barra de búsqueda y el filtro._
+
+### Detalles de un País
+
+![Captura de la página de detalles de un país](./images/tarjeta.png)
+_Información detallada de un país específico, con sus fronteras._
+
+### Modo Oscuro
+
+![Captura del modo oscuro de la aplicación](./images/modo-oscuro.png)
+_Así se ve la aplicación cuando el modo oscuro está activado._
+
 La maquetación visual de este proyecto fue diseñada utilizando **Canva**. Puedes explorar el diseño original y su estructura a través del siguiente enlace:
 
 [Ver Maquetación en Canva](https://www.canva.com/design/DAGqqCIw9W8/xSWLCITNwhc39TX3C9wMfA/edit?utm_content=DAGqqCIw9W8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
