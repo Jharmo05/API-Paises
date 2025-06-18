@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Países del Mundo</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:300,500,600,700,800"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==S"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta name="description" content="Una aplicación sencilla para buscar y filtrar países." />
+    <meta name="keywords" content="países, buscar, filtrar, modo oscuro" />
+  </head>
+  <body>
+    <header class="header-container">
+      <div class="header-content">
+        <h1 class="title"><a href="/">Paises del mundo</a></h1>
+        <p class="theme-changer">
+          <i class="fa-regular fa-moon"></i>&nbsp;&nbsp;Modo Oscuro
+        </p>
+      </div>
+    </header>
+    <main>
+      <div class="search-filter-container">
+        <div class="search-container">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Buscar un país..." />
+        </div>
+        <div>
+          <select title="Filtrar por Región" class="filter-by-region">
+            <option hidden>Filtrar por Región</option>
+            <option value="Africa">África</option>
+            <option value="America">América</option>
+            <option value="Asia">Asia</option>
+            <option value="Europe">Europa</option>
+            <option value="Oceania">Oceanía</option>
+          </select>
+        </div>
+      </div>
+      <div class="countries-container">
+      </div>
+    </main>
+    <script src="./main.js"></script>
+<footer class="main-footer">
+  <div class="footer-content">
+    <p>&copy; 2024 Creado por Sebastian Ardila</p>
+  </div>
+</footer>
+  </body>
+</html>
