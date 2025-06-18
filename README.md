@@ -18,7 +18,7 @@ Este proyecto es ideal para quienes están empezando a aprender desarrollo web y
 ### Página Principal
 
 ![Captura de la página principal de países](./images/first.png)
-_Una vista general de la lista de países, incluyendo la barra de búsqueda y el filtro._
+
 
 ### Detalles de un País
 
