@@ -2,6 +2,8 @@
 
 ¡Bienvenido a "Dónde en el mundo?", una aplicación web simple y amigable para explorar información sobre países de todo el mundo! Puedes buscar países, filtrarlos por región y ver los detalles de cada uno.
 
+**¡Mira el proyecto en vivo aquí!** [https://jharmo05.github.io/API-Paises/](https://jharmo05.github.io/API-Paises/)
+
 Este proyecto es ideal para quienes están empezando a aprender desarrollo web y quieren ver cómo se consume una API y se manipula el DOM con JavaScript puro.
 
 ## ✨ Características
@@ -14,21 +16,6 @@ Este proyecto es ideal para quienes están empezando a aprender desarrollo web y
 * **Diseño Responsivo:** La aplicación se ve bien en dispositivos de escritorio y móviles.
 
 ## 🎨 Diseño Visual (Maquetación)
-
-### Página Principal
-
-![Captura de la página principal de países](./images/first.png)
-
-
-### Detalles de un País
-
-![Captura de la página de detalles de un país](./images/tarjeta.png)
-_Información detallada de un país específico, con sus fronteras._
-
-### Modo Oscuro
-
-![Captura del modo oscuro de la aplicación](./images/modo-oscuro.png)
-_Así se ve la aplicación cuando el modo oscuro está activado._
 
 La maquetación visual de este proyecto fue diseñada utilizando **Canva**. Puedes explorar el diseño original y su estructura a través del siguiente enlace:
 
