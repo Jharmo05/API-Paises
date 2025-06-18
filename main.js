@@ -2,7 +2,7 @@ const contenedorPaises = document.querySelector(".countries-container");
 const inputBusqueda = document.querySelector(".search-container input");
 const cambiadorTema = document.querySelector(".theme-changer");
 
-let todosLosPaises;
+let todosLosPaises; // Esta variable almacenará todos los países para la búsqueda
 
 function aplicarTemaGuardado() {
   const temaGuardado = localStorage.getItem('tema');
@@ -13,18 +13,18 @@ function aplicarTemaGuardado() {
   }
 }
 
-aplicarTemaGuardado();
+aplicarTemaGuardado(); // Aplica el tema guardado al cargar la página
 
 fetch("https://restcountries.com/v3.1/all")
   .then((respuesta) => respuesta.json())
   .then((datos) => {
-    todosLosPaises = datos;
-    mostrarPaises(datos);
+    todosLosPaises = datos; // Guarda todos los países aquí
+    mostrarPaises(datos); // Muestra todos los países inicialmente
   })
-  .catch(error => console.error("Error al cargar todos los países:", error));
+  .catch(error => console.error("Error al cargar todos los países:", error)); // Manejo de errores
 
 function mostrarPaises(datosPaises) {
-  contenedorPaises.innerHTML = "";
+  contenedorPaises.innerHTML = ""; // Limpia el contenedor antes de mostrar nuevos países
   if (datosPaises.length === 0) {
     contenedorPaises.innerHTML = "<p>No se encontraron países que coincidan con la búsqueda.</p>";
     return;
@@ -32,7 +32,8 @@ function mostrarPaises(datosPaises) {
   datosPaises.forEach((pais) => {
     const tarjetaPais = document.createElement("a");
     tarjetaPais.classList.add("country-card");
-    tarjetaPais.href = `country.html?name=${pais.name.common}`;
+    // Usar una ruta relativa para GitHub Pages:
+    tarjetaPais.href = `country.html?name=${pais.name.common}`; 
     tarjetaPais.innerHTML = `
           <img src="${pais.flags.svg}" alt="Bandera de ${pais.name.common}" />
           <div class="card-text">
@@ -48,6 +49,7 @@ function mostrarPaises(datosPaises) {
 
 inputBusqueda.addEventListener("input", (evento) => {
   const textoBusqueda = evento.target.value.toLowerCase();
+  // Filtra de `todosLosPaises` que ya contiene todos los datos
   const paisesFiltrados = todosLosPaises.filter((pais) =>
     pais.name.common.toLowerCase().includes(textoBusqueda)
   );

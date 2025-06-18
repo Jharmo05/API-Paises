@@ -74,6 +74,5 @@ fetch(`https://restcountries.com/v3.1/name/${nombrePais}?fullText=true`)
       });
     } else {
       paisesFronterizos.innerText = 'Países Fronterizos: Ninguno';
-    }
   })
   .catch((error) => console.error('Error al obtener los datos del país:', error));
