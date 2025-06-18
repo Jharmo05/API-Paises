@@ -23,7 +23,7 @@ function mostrarPaises(datosPaises) {
   datosPaises.forEach((pais) => {
     const tarjetaPais = document.createElement("a");
     tarjetaPais.classList.add("country-card");
-    tarjetaPais.href = `/country.html?name=${pais.name.common}`;
+    tarjetaPais.href = `country.html?name=${pais.name.common}`;
     tarjetaPais.innerHTML = `
           <img src="${pais.flags.svg}" alt="Bandera de ${pais.name.common}" />
           <div class="card-text">
